@@ -1,7 +1,7 @@
 <?php
 
 $servidor = "localhost";
-$baseDedatos = "app_php";
+$baseDedatos = "db_app_php_smc";
 $usuario = "root";
 $contraseña = "";
 
