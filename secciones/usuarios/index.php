@@ -2,7 +2,7 @@
 <?php include("../../db.php") ?>
 
 <?php
-$sentence=$conexion->prepare("select * from usuarios");
+$sentence=$conexion->prepare("select * from usuarios where id!=45");
 $sentence->execute();
 $result=$sentence->fetchAll();
 

@@ -13,6 +13,11 @@
 </head>
 
 <?php
+session_start();
+if(!isset($_SESSION["nombre_usuario"])){
+    header("location: login.php");
+}
+
 $urlRoot = "http://localhost:8080/app_php/app_php_smc/"
 
 ?>
@@ -39,7 +44,7 @@ $urlRoot = "http://localhost:8080/app_php/app_php_smc/"
                 <a class="nav-link" href="<?php echo $urlRoot; ?>secciones/mantenimientos/index.php">Mantenimientos</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Cerrar sesion</a>
+                <a class="nav-link" href="<?php echo $urlRoot; ?>cerrar.php">Cerrar sesion</a>
             </li>
         </ul>
     </nav>
