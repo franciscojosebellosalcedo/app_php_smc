@@ -1,4 +1,22 @@
 <?php include("../../templates/header.php")   ?>
+<?php include("../../db.php")   ?>
+
+<?php 
+$sentence=$conexion->prepare("select * from tecnicos");
+$sentence->execute();
+$result=$sentence->fetchAll();
+
+if ($_GET) {
+    $id=intval(isset($_GET["id"])?$_GET["id"]:"");
+    $sentence=$conexion->prepare("delete from tecnicos where id=:id");
+    $sentence->bindParam(":id",$id);
+    $sentence->execute();
+
+    header("location:index.php");
+}
+
+
+?>
 
 <h3>Técnicos</h3>
 <div class="card">
@@ -17,24 +35,24 @@
                         <th scope="col">Correo</th>
                         <th scope="col">Dirección</th>
                         <th scope="col">Teléfono</th>
-                        <th scope="col">Foto</th>
                         <th scope="col">Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
+                <?php foreach($result as $technical){?>
                     <tr class="">
-                        <td scope="row">R1C2</td>
-                        <td>R1C3</td>
-                        <td>R1C3</td>
-                        <td>R1C3</td>
-                        <td>R1C3</td>
-                        <td>R1C3</td>
-                        <td>R1C3</td>
-                        <td>R1C3</td>
-                        <td><a  class="btn btn-info" href="edit.php" role="button">Editar</a></td>
-                        <td><a  class="btn btn-primary" href="asignarMant.php" role="button">Asignar mantenimiento</a></td>
-                        <td><a  class="btn btn-danger" href="edit.php" role="button">Eliminar</a></td>
+                        <td scope="row"><?php echo $technical["id"]?></td>
+                        <td><?php echo $technical["nombres"]?></td>
+                        <td><?php echo $technical["apellidos"]?></td>
+                        <td><?php echo $technical["identificacion"]?></td>
+                        <td><?php echo $technical["correo"]?></td>
+                        <td><?php echo $technical["direccion"]?></td>
+                        <td><?php echo $technical["telefono"]?></td>
+                        <td><?php echo $technical["fecha_nacimiento"]?></td>
+                        <td><a  class="btn btn-info" href="edit.php?id=<?php echo $technical["id"]?>" role="button">Editar</a></td>
+                        <td><a  class="btn btn-danger" href="index.php?id=<?php echo $technical["id"]?>" role="button">Eliminar</a></td>
                     </tr>
+                <?php }?>
                 </tbody>
             </table>
         </div>

@@ -1,4 +1,21 @@
 <?php include("../../templates/header.php")   ?>
+<?php include("../../db.php") ?>
+
+<?php
+$sentence=$conexion->prepare("select * from usuarios");
+$sentence->execute();
+$result=$sentence->fetchAll();
+
+if($_GET){
+    $id=isset($_GET["id"])?$_GET["id"]:null;
+    $id=intval($id);
+    $sentence=$conexion->prepare("delete from usuarios where id=:id");
+    $sentence->bindParam(":id",$id);
+    $sentence->execute();
+    header("location:index.php");
+}
+
+?>
 
 <h3>Usuarios</h3>
 <div class="card">
@@ -20,16 +37,20 @@
                     </tr>
                 </thead>
                 <tbody>
+                <?php foreach ($result as $user) { ?>
+
                     <tr class="">
-                        <td scope="row">R1C2</td>
-                        <td>R1C3</td>
-                        <td>R1C3</td>
-                        <td>R1C3</td>
-                        <td>R1C3</td>
+                        <td scope="row"><?php echo $user["id"]?></td>
+                        <td><?php echo $user["nombre"]?></td>
+                        <td><?php echo $user["apellido"]?></td>
+                        <td><?php echo $user["identificacion"]?></td>
+                        <td><?php echo $user["correo"]?></td>
                         <td>*****</td>
-                        <td><a  class="btn btn-info" href="edit.php" role="button">Editar</a></td>
-                        <td><a  class="btn btn-danger" href="edit.php" role="button">Eliminar</a></td>
+                        <td><a  class="btn btn-info" href="edit.php?id=<?php echo $user["id"]?>" role="button">Editar</a></td>
+                        <td><a  class="btn btn-danger" href="index.php?id=<?php echo $user["id"]?>" role="button">Eliminar</a></td>
                     </tr>
+
+                <?php } ?>
                 </tbody>
             </table>
         </div>

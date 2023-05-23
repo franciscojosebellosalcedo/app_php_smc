@@ -40,7 +40,7 @@ if ($_POST) {
 
 ?>
 
-<h2>Editar</h2>
+<h2>Editar computador</h2>
 <div class="card">
     <div class="card-header">
         Datos nuevos del computador

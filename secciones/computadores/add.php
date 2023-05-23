@@ -15,23 +15,22 @@ if ($_POST) {
   $gpu = isset($_POST["gpu"]) ? $_POST["gpu"] : "";
   $disipador = isset($_POST["disipador"]) ? $_POST["disipador"] : "";
   $placa_madre = isset($_POST["placa_madre"]) ? $_POST["placa_madre"] : "";
-
   // $foto = isset($_FILES["foto"]) ? $_FILES["foto"] : "";
 
   $sentence = $conexion->prepare(
     "insert into computadores (id,serial,marca,modelo,cpu,ram,almacenamiento,fuente_de_poder,gpu,disipador,placa_madre) 
     values (null,:serial,:marca,:modelo,:cpu,:ram,:almacenamiento,:fuente_de_poder,:gpu,:disipador,:placa_madre)"
   );
-  $sentence->bindParam(":serial",$serial);
-  $sentence->bindParam(":marca",$marca);
-  $sentence->bindParam(":modelo",$modelo);
-  $sentence->bindParam(":cpu",$cpu);
-  $sentence->bindParam(":ram",$ram);
-  $sentence->bindParam(":almacenamiento",$almacenamiento);
-  $sentence->bindParam(":fuente_de_poder",$fuente_de_poder);
-  $sentence->bindParam(":gpu",$gpu);
-  $sentence->bindParam(":disipador",$disipador);
-  $sentence->bindParam(":placa_madre",$placa_madre);
+  $sentence->bindParam(":serial", $serial);
+  $sentence->bindParam(":marca", $marca);
+  $sentence->bindParam(":modelo", $modelo);
+  $sentence->bindParam(":cpu", $cpu);
+  $sentence->bindParam(":ram", $ram);
+  $sentence->bindParam(":almacenamiento", $almacenamiento);
+  $sentence->bindParam(":fuente_de_poder", $fuente_de_poder);
+  $sentence->bindParam(":gpu", $gpu);
+  $sentence->bindParam(":disipador", $disipador);
+  $sentence->bindParam(":placa_madre", $placa_madre);
 
   // $fecha_foto=new DateTime();
   // $nombre_archivo_foto=($foto != "") ? $fecha_foto->getTimestamp()."_".$_FILES["foto"]["name"]:"";
@@ -47,10 +46,10 @@ if ($_POST) {
 }
 
 ?>
-
+<h2>Agregar nuevo computador</h2>
 <div class="card">
   <div class="card-header">
-    Datos del computador
+    Datos del nuevo computador
   </div>
   <div class="card-body">
     <form action="add.php" method="post" enctype="multipart/form-data">
