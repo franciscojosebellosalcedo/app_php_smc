@@ -49,52 +49,52 @@ if($_POST){
 
       <div class="mb-3">
         <label for="" class="form-label">Serial</label>
-        <input type="text" class="form-control" name="serial" id="serial-computador" aria-describedby="helpId" placeholder="Ingrese el serial del computador">
+        <input required type="text" class="form-control" name="serial" id="serial-computador" aria-describedby="helpId" placeholder="Ingrese el serial del computador">
       </div>
 
       <div class="mb-3">
         <label for="" class="form-label">Marca</label>
-        <input type="text" class="form-control" name="marca" id="marca-computador" aria-describedby="helpId" placeholder="Ingrese la marca del computador">
+        <input required type="text" class="form-control" name="marca" id="marca-computador" aria-describedby="helpId" placeholder="Ingrese la marca del computador">
       </div>
 
       <div class="mb-3">
         <label for="" class="form-label">Modelo</label>
-        <input type="text" class="form-control" name="modelo" id="modelo-computador" aria-describedby="helpId" placeholder="Ingrese el modelo del computador">
+        <input required type="text" class="form-control" name="modelo" id="modelo-computador" aria-describedby="helpId" placeholder="Ingrese el modelo del computador">
       </div>
 
       <div class="mb-3">
         <label for="" class="form-label">Cpu</label>
-        <input type="text" class="form-control" name="cpu" id="cpu-computador" aria-describedby="helpId" placeholder="Ingrese la cpu del computador">
+        <input required type="text" class="form-control" name="cpu" id="cpu-computador" aria-describedby="helpId" placeholder="Ingrese la cpu del computador">
       </div>
 
       <div class="mb-3">
         <label for="" class="form-label">Ram</label>
-        <input type="text" class="form-control" name="ram" id="ram-computador" aria-describedby="helpId" placeholder="Ingrese la ram del computador">
+        <input required type="text" class="form-control" name="ram" id="ram-computador" aria-describedby="helpId" placeholder="Ingrese la ram del computador">
       </div>
 
       <div class="mb-3">
         <label for="" class="form-label">Almacenamiento</label>
-        <input type="text" class="form-control" name="almacenamiento" id="almacenamiento-computador" aria-describedby="helpId" placeholder="Ingrese el almacenamiento del computador">
+        <input required type="text" class="form-control" name="almacenamiento" id="almacenamiento-computador" aria-describedby="helpId" placeholder="Ingrese el almacenamiento del computador">
       </div>
 
       <div class="mb-3">
         <label for="" class="form-label">Fuente de poder</label>
-        <input type="text" class="form-control" name="fuente_de_poder" id="fuente_de_poder-computador" aria-describedby="helpId" placeholder="Ingrese la fuente de poder del computador">
+        <input required type="text" class="form-control" name="fuente_de_poder" id="fuente_de_poder-computador" aria-describedby="helpId" placeholder="Ingrese la fuente de poder del computador">
       </div>
 
       <div class="mb-3">
         <label for="" class="form-label">Gpu</label>
-        <input type="text" class="form-control" name="gpu" id="gpu-computador" aria-describedby="helpId" placeholder="Ingrese la gpu del computador">
+        <input required type="text" class="form-control" name="gpu" id="gpu-computador" aria-describedby="helpId" placeholder="Ingrese la gpu del computador">
       </div>
 
       <div class="mb-3">
         <label for="" class="form-label">Disipador</label>
-        <input type="text" class="form-control" name="disipador" id="disipador-computador" aria-describedby="helpId" placeholder="Ingrese el disipador del computador">
+        <input required type="text" class="form-control" name="disipador" id="disipador-computador" aria-describedby="helpId" placeholder="Ingrese el disipador del computador">
       </div>
 
       <div class="mb-3">
         <label for="" class="form-label">Placa madre</label>
-        <input type="text" class="form-control" name="placa_madre" id="placa_madre-computador" aria-describedby="helpId" placeholder="Ingrese la placa madre del computador">
+        <input required type="text" class="form-control" name="placa_madre" id="placa_madre-computador" aria-describedby="helpId" placeholder="Ingrese la placa madre del computador">
       </div>
 
       <button type="submit" class="btn btn-success">Guardar</button>

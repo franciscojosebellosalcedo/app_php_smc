@@ -67,13 +67,13 @@ if ($_GET) {
 
       <div class="mb-3">
         <label for="" class="form-label">Id</label>
-        <input value="<?php echo $resultMant["id"] ?>" type="text" class="form-control" name="id" id="id-mantenimiento" aria-describedby="helpId" readonly>
+        <input required value="<?php echo $resultMant["id"] ?>" type="text" class="form-control" name="id" id="id-mantenimiento" aria-describedby="helpId" readonly>
       </div>
 
       <div class="mb-3">
         <label for="" class="form-label">Técnico</label>
 
-        <select class="form-select form-select-lg" name="select_tecnico" id="selec-tecnico" style="font-size: 15px;">
+        <select required class="form-select form-select-lg" name="select_tecnico" id="selec-tecnico" style="font-size: 15px;">
 
           <option value="<?php echo $resultTec["id"] ?>" selected><?php echo $resultTec["nombres"] ?> <?php echo $resultTec["apellidos"] ?> </option>
 
@@ -87,7 +87,7 @@ if ($_GET) {
 
       <div class="mb-3">
         <label for="" class="form-label">Computador</label>
-        <select class="form-select form-select-lg" name="select_computador" id="selec-tecnico" style="font-size: 15px;">
+        <select required class="form-select form-select-lg" name="select_computador" id="selec-tecnico" style="font-size: 15px;">
           <option value="<?php echo $resultComp["id"] ?>" selected><?php echo $resultComp["serial"] ?> <?php echo $resultComp["marca"] ?> </option>
 
           <?php foreach ($listComps as $comp) { ?>
@@ -99,7 +99,7 @@ if ($_GET) {
 
       <div class="mb-3">
         <label for="" class="form-label">Tipo de mantenimiento</label>
-        <select class="form-select form-select-lg" name="select_tipo_manten" id="selec-tecnico" style="font-size: 15px;">
+        <select required class="form-select form-select-lg" name="select_tipo_manten" id="selec-tecnico" style="font-size: 15px;">
           <option selected><?php echo $resultMant["tipo_mantenimiento"]?></option>
           <option value="preventivo">Preventivo</option>
           <option value="correctivo">Correctivo</option>
@@ -109,17 +109,17 @@ if ($_GET) {
 
       <div class="mb-3">
         <label for="" class="form-label">Caso</label>
-        <textarea class="form-control" name="caso" id="caso" rows="3"><?php echo $resultMant["caso"]?></textarea>
+        <textarea required class="form-control" name="caso" id="caso" rows="3"><?php echo $resultMant["caso"]?></textarea>
       </div>
 
       <div class="mb-3">
         <label for="" class="form-label">Precio (opcional)</label>
-        <input value="<?php echo $resultMant["precio"]?>" type="double" class="form-control" name="precio" id="precio-mantenimiento" aria-describedby="helpId" placeholder="Ingrese el precio del mantenimiento (opcional)">
+        <input required value="<?php echo $resultMant["precio"]?>" type="double" class="form-control" name="precio" id="precio-mantenimiento" aria-describedby="helpId" placeholder="Ingrese el precio del mantenimiento (opcional)">
       </div>
 
       <div class="mb-3">
         <label for="" class="form-label">Fecha nacimiento</label>
-        <input type="date" class="form-control" name="fecha_asignacion" id="fecha_asignacion_mantenimiento" aria-describedby="helpId">
+        <input required type="date" class="form-control" name="fecha_asignacion" id="fecha_asignacion_mantenimiento" aria-describedby="helpId">
       </div>
 
 

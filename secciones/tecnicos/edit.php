@@ -42,42 +42,42 @@ if($_POST){
 
       <div class="mb-3">
         <label for="" class="form-label">Id</label>
-        <input value="<?php echo $result["id"] ?>" type="text" class="form-control" name="id" id="id-tecnico" aria-describedby="helpId" readonly>
+        <input required value="<?php echo $result["id"] ?>" type="text" class="form-control" name="id" id="id-tecnico" aria-describedby="helpId" readonly>
       </div>
 
       <div class="mb-3">
         <label for="" class="form-label">Nombres</label>
-        <input value="<?php echo $result["nombres"] ?>" type="text" class="form-control" name="nombres" id="nombres-tecnico" aria-describedby="helpId" placeholder="Ingrese  nombres del técnico">
+        <input required value="<?php echo $result["nombres"] ?>" type="text" class="form-control" name="nombres" id="nombres-tecnico" aria-describedby="helpId" placeholder="Ingrese  nombres del técnico">
       </div>
 
       <div class="mb-3">
         <label for="" class="form-label">Apellidos</label>
-        <input value="<?php echo $result["apellidos"] ?>" type="text" class="form-control" name="apellidos" id="apellidos-tecnico" aria-describedby="helpId" placeholder="Ingrese  apellidos del técnico">
+        <input required value="<?php echo $result["apellidos"] ?>" type="text" class="form-control" name="apellidos" id="apellidos-tecnico" aria-describedby="helpId" placeholder="Ingrese  apellidos del técnico">
       </div>
 
       <div class="mb-3">
         <label for="" class="form-label">Número de identificacion</label>
-        <input value="<?php echo $result["identificacion"] ?>" type="text" class="form-control" name="identificacion" id="identificacion-tecnico" aria-describedby="helpId" placeholder="Ingrese número de identificacion del técnico">
+        <input required value="<?php echo $result["identificacion"] ?>" type="text" class="form-control" name="identificacion" id="identificacion-tecnico" aria-describedby="helpId" placeholder="Ingrese número de identificacion del técnico">
       </div>
 
       <div class="mb-3">
         <label for="" class="form-label">Correo electrónico</label>
-        <input value="<?php echo $result["correo"] ?>" type="email" class="form-control" name="correo" id="correo-tecnico" aria-describedby="helpId" placeholder="Ingrese correo del técnico">
+        <input required value="<?php echo $result["correo"] ?>" type="email" class="form-control" name="correo" id="correo-tecnico" aria-describedby="helpId" placeholder="Ingrese correo del técnico">
       </div>
 
       <div class="mb-3">
         <label for="" class="form-label">Dirección</label>
-        <input value="<?php echo $result["direccion"] ?>" type="text" class="form-control" name="direccion" id="direccion-tecnico" aria-describedby="helpId" placeholder="Ingrese dirección del técnico">
+        <input required value="<?php echo $result["direccion"] ?>" type="text" class="form-control" name="direccion" id="direccion-tecnico" aria-describedby="helpId" placeholder="Ingrese dirección del técnico">
       </div>
 
       <div class="mb-3">
         <label for="" class="form-label">Número teléfono</label>
-        <input value="<?php echo $result["telefono"] ?>" type="text" class="form-control" name="telefono" id="telefono-tecnico" aria-describedby="helpId" placeholder="Ingrese número de telefono del técnico">
+        <input required value="<?php echo $result["telefono"] ?>" type="text" class="form-control" name="telefono" id="telefono-tecnico" aria-describedby="helpId" placeholder="Ingrese número de telefono del técnico">
       </div>
 
       <div class="mb-3">
         <label for="" class="form-label">Fecha nacimiento</label>
-        <input value="<?php echo $result["fecha_nacimiento"] ?>" type="date" class="form-control" name="fecha_nacimiento" id="fecha_nacimiento-tecnico" aria-describedby="helpId" placeholder="Ingrese la fecha nacimientodel técnico">
+        <input required value="<?php echo $result["fecha_nacimiento"] ?>" type="date" class="form-control" name="fecha_nacimiento" id="fecha_nacimiento-tecnico" aria-describedby="helpId" placeholder="Ingrese la fecha nacimientodel técnico">
       </div>
 
       <button type="submit" class="btn btn-success">Actualizar</button>

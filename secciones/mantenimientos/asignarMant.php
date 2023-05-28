@@ -47,7 +47,7 @@ if ($_POST) {
 
       <div class="mb-3">
         <label for="" class="form-label">Técnico</label>
-        <select class="form-select form-select-lg" name="select_tecnico" id="selec-tecnico" style="font-size: 15px;">
+        <select required class="form-select form-select-lg" name="select_tecnico" id="selec-tecnico" style="font-size: 15px;">
 
           <option selected>Seleccione un técnico</option>
           <?php foreach ($listTechnical as $tec) { ?>
@@ -58,7 +58,7 @@ if ($_POST) {
 
       <div class="mb-3">
         <label for="" class="form-label">Computador</label>
-        <select class="form-select form-select-lg" name="select_computador" id="selec-tecnico" style="font-size: 15px;">
+        <select required class="form-select form-select-lg" name="select_computador" id="selec-tecnico" style="font-size: 15px;">
           <option selected>Seleccione un computador</option>
           <?php foreach ($listComputers as $comp) { ?>
             <option value="<?php echo $comp["id"] ?>">Serial: <?php echo $comp["serial"] ?> Marca:<?php echo $comp["marca"] ?> Modelo: <?php echo $comp["modelo"] ?> Cpu: <?php echo $comp["cpu"] ?></option>
@@ -68,7 +68,7 @@ if ($_POST) {
 
       <div class="mb-3">
         <label for="" class="form-label">Tipo de mantenimiento</label>
-        <select class="form-select form-select-lg" name="select_tipo_manten" id="selec-tecnico" style="font-size: 15px;">
+        <select required class="form-select form-select-lg" name="select_tipo_manten" id="selec-tecnico" style="font-size: 15px;">
           <option selected>Seleccione el tipo del mantenimiento</option>
           <option value="preventivo">Preventivo</option>
           <option value="correctivo">Correctivo</option>
@@ -78,17 +78,17 @@ if ($_POST) {
 
       <div class="mb-3">
         <label for="" class="form-label">Caso</label>
-        <textarea class="form-control" name="caso" id="caso" rows="3"></textarea>
+        <textarea required class="form-control" name="caso" id="caso" rows="3"></textarea>
       </div>
 
       <div class="mb-3">
         <label for="" class="form-label">Precio (opcional)</label>
-        <input type="double" class="form-control" name="precio" id="precio-mantenimiento" aria-describedby="helpId" placeholder="Ingrese el precio del mantenimiento (opcional)">
+        <input required type="double" class="form-control" name="precio" id="precio-mantenimiento" aria-describedby="helpId" placeholder="Ingrese el precio del mantenimiento (opcional)">
       </div>
 
       <div class="mb-3">
         <label for="" class="form-label">Fecha nacimiento</label>
-        <input type="date" class="form-control" name="fecha_asignacion" id="fecha_asignacion_mantenimiento" aria-describedby="helpId">
+        <input required type="date" class="form-control" name="fecha_asignacion" id="fecha_asignacion_mantenimiento" aria-describedby="helpId">
       </div>
 
       <button type="submit" class="btn btn-success">Guardar</button>

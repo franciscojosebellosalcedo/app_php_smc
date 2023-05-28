@@ -42,32 +42,32 @@ if($_POST){
         <form action="edit.php" method="post" enctype="multipart/form-data">
             <div class="mb-3">
                 <label for="" class="form-label">Id</label>
-                <input value="<?php echo $result["id"]?>" type="text" class="form-control" name="id" id="id-usuario" aria-describedby="helpId" readonly>
+                <input required value="<?php echo $result["id"]?>" type="text" class="form-control" name="id" id="id-usuario" aria-describedby="helpId" readonly>
             </div>
 
             <div class="mb-3">
                 <label for="" class="form-label">Nombres</label>
-                <input value="<?php echo $result["nombre"]?>" type="text" class="form-control" name="nombre" id="nombre-usuario" aria-describedby="helpId" placeholder="Ingrese nombre del usuario">
+                <input required value="<?php echo $result["nombre"]?>" type="text" class="form-control" name="nombre" id="nombre-usuario" aria-describedby="helpId" placeholder="Ingrese nombre del usuario">
             </div>
 
             <div class="mb-3">
                 <label for="" class="form-label">Apellido</label>
-                <input value="<?php echo $result["apellido"]?>" type="text" class="form-control" name="apellido" id="apellido-usuario" aria-describedby="helpId" placeholder="Ingrese apellido del usuario">
+                <input required value="<?php echo $result["apellido"]?>" type="text" class="form-control" name="apellido" id="apellido-usuario" aria-describedby="helpId" placeholder="Ingrese apellido del usuario">
             </div>
 
             <div class="mb-3">
                 <label for="" class="form-label">Número de identificacion</label>
-                <input value="<?php echo $result["identificacion"]?>" type="text" class="form-control" name="identificacion" id="identificacion-usuario" aria-describedby="helpId" placeholder="Ingrese número identificación del usuario">
+                <input required value="<?php echo $result["identificacion"]?>" type="text" class="form-control" name="identificacion" id="identificacion-usuario" aria-describedby="helpId" placeholder="Ingrese número identificación del usuario">
             </div>
 
             <div class="mb-3">
                 <label for="" class="form-label">Correo electrónico</label>
-                <input value="<?php echo $result["correo"]?>" type="email" class="form-control" name="correo" id="correo-usuario" aria-describedby="helpId" placeholder="Ingrese correo electrónico  del usuario">
+                <input required value="<?php echo $result["correo"]?>" type="email" class="form-control" name="correo" id="correo-usuario" aria-describedby="helpId" placeholder="Ingrese correo electrónico  del usuario">
             </div>
 
             <div class="mb-3">
                 <label for="" class="form-label">contraseña</label>
-                <input value="<?php echo $result["contrasenia"]?>" type="password" class="form-control" name="contrasenia" id="contraseña-usuario" aria-describedby="helpId" placeholder="Ingrese la contraseña del usuario">
+                <input required value="<?php echo $result["contrasenia"]?>" type="password" class="form-control" name="contrasenia" id="contraseña-usuario" aria-describedby="helpId" placeholder="Ingrese la contraseña del usuario">
             </div>
 
             <button type="submit" class="btn btn-success">Actualizar</button>
