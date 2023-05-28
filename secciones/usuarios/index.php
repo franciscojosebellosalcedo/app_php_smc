@@ -47,7 +47,7 @@ if($_GET){
                         <td><?php echo $user["correo"]?></td>
                         <td>*****</td>
                         <td><a  class="btn btn-info" href="edit.php?id=<?php echo $user["id"]?>" role="button">Editar</a></td>
-                        <td><a  class="btn btn-danger" href="index.php?id=<?php echo $user["id"]?>" role="button">Eliminar</a></td>
+                        <td><a  class="btn btn-danger" href="javascript:deleteRegister(<?php echo $user["id"]?>)" role="button">Eliminar</a></td>
                     </tr>
 
                 <?php } ?>
@@ -58,5 +58,18 @@ if($_GET){
     </div>
    
 </div>
+<script>
+    function deleteRegister(id) {
+        Swal.fire({
+            title: '¿ Deseas eliminar este usuario ?',
+            showCancelButton: true,
+            confirmButtonText: 'Si',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = "index.php?id=" + id;
+            }
+        })
+    }
+</script>
 
 <?php include("../../templates/footer.php")   ?>

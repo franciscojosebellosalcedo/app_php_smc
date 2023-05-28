@@ -4,7 +4,7 @@
 
 <?php
 
-if ($_POST) {
+if($_POST){
   $serial = isset($_POST["serial"]) ? $_POST["serial"] : "";
   $marca = isset($_POST["marca"]) ? $_POST["marca"] : "";
   $modelo = isset($_POST["modelo"]) ? $_POST["modelo"] : "";
@@ -15,7 +15,6 @@ if ($_POST) {
   $gpu = isset($_POST["gpu"]) ? $_POST["gpu"] : "";
   $disipador = isset($_POST["disipador"]) ? $_POST["disipador"] : "";
   $placa_madre = isset($_POST["placa_madre"]) ? $_POST["placa_madre"] : "";
-  // $foto = isset($_FILES["foto"]) ? $_FILES["foto"] : "";
 
   $sentence = $conexion->prepare(
     "insert into computadores (id,serial,marca,modelo,cpu,ram,almacenamiento,fuente_de_poder,gpu,disipador,placa_madre) 
@@ -31,21 +30,15 @@ if ($_POST) {
   $sentence->bindParam(":gpu", $gpu);
   $sentence->bindParam(":disipador", $disipador);
   $sentence->bindParam(":placa_madre", $placa_madre);
-
-  // $fecha_foto=new DateTime();
-  // $nombre_archivo_foto=($foto != "") ? $fecha_foto->getTimestamp()."_".$_FILES["foto"]["name"]:"";
-  // $tmp_foto=$_FILES["foto"]["tmp_name"];
-  // if($tmp_foto!=""){
-  //   move_uploaded_file($tmp_foto,"./img");
-  // }
-
-  // $sentence->bindParam(":foto",$nombre_archivo_foto);
-
   $sentence->execute();
+
   header("location:index.php");
 }
 
 ?>
+
+
+
 <h2>Agregar nuevo computador</h2>
 <div class="card">
   <div class="card-header">

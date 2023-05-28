@@ -10,11 +10,13 @@
     <!-- Bootstrap CSS v5.2.1 -->
     <link rel="stylesheet" href="./css/index.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 </head>
 
 <?php
 session_start();
-if(!isset($_SESSION["nombre_usuario"])){
+if (!isset($_SESSION["nombre_usuario"])) {
     header("location: login.php");
 }
 
@@ -44,10 +46,24 @@ $urlRoot = "http://localhost:8080/app_php/app_php_smc/"
                 <a class="nav-link" href="<?php echo $urlRoot; ?>secciones/mantenimientos/index.php">Mantenimientos</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="<?php echo $urlRoot; ?>cerrar.php">Cerrar sesion</a>
+                <a class="nav-link" href="javascript:cerrarSesion(<?php echo $_SESSION["id_usuario"] ?>)">Cerrar sesion</a>
             </li>
         </ul>
     </nav>
+
+    <script>
+        function cerrarSesion(id) {
+            Swal.fire({
+                title: '¿ Deseas cerrar sesion ?',
+                showCancelButton: true,
+                confirmButtonText: 'Si',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = "cerrar.php?id=" + id;
+                }
+            })
+        }
+    </script>
 
     <br>
     <br>

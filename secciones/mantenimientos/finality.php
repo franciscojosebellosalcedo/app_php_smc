@@ -64,7 +64,8 @@ if ($_GET) {
                             <td>$<?php echo $mant["precio"] ?></td>
                             <td><?php echo $mant["fecha_asignacion"] ?></td>
                             <td><?php echo $mant["fecha_finalizacion"] ?></td>
-                            <td><a class="btn btn-danger" href="finality.php?id=<?php echo $mant["id"] ?>" role="button">Eliminar</a></td>
+                            <td><a class="btn btn-warning" href="javascript:restaurarEntrega(<?php echo $mant["id"] ?>)" role="button">Rest. entrega</a></td>
+                            <td><a class="btn btn-danger" href="javascript:deleteRegister(<?php echo $mant["id"] ?>)" role="button">Eliminar</a></td>
                         </tr>
                     <?php } ?>
                 </tbody>
@@ -74,6 +75,30 @@ if ($_GET) {
     </div>
 
 </div>
+<script>
+    function deleteRegister(id) {
+    Swal.fire({
+      title: '¿ Deseas eliminar este mantenimiento finalizado ?',
+      showCancelButton: true,
+      confirmButtonText: 'Si',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        window.location.href = "finality.php?id=" + id;
+      }
+    })
+  }
+    function restaurarEntrega(id) {
+    Swal.fire({
+      title: '¿ Deseas restaurar la entrega  este mantenimiento finalizado ?',
+      showCancelButton: true,
+      confirmButtonText: 'Si',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        window.location.href = "resetMan.php?id=" + id;
+      }
+    })
+  }
+</script>
 
 
 <?php include("../../templates/footer.php")   ?>

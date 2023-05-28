@@ -1,15 +1,15 @@
 <?php include("../../templates/header.php")   ?>
 <?php include("../../db.php")   ?>
 
-<?php 
-$sentence=$conexion->prepare("select * from tecnicos");
+<?php
+$sentence = $conexion->prepare("select * from tecnicos");
 $sentence->execute();
-$result=$sentence->fetchAll();
+$result = $sentence->fetchAll();
 
 if ($_GET) {
-    $id=intval(isset($_GET["id"])?$_GET["id"]:"");
-    $sentence=$conexion->prepare("delete from tecnicos where id=:id");
-    $sentence->bindParam(":id",$id);
+    $id = intval(isset($_GET["id"]) ? $_GET["id"] : "");
+    $sentence = $conexion->prepare("delete from tecnicos where id=:id");
+    $sentence->bindParam(":id", $id);
     $sentence->execute();
 
     header("location:index.php");
@@ -21,7 +21,7 @@ if ($_GET) {
 <h3>Técnicos</h3>
 <div class="card">
     <div class="card-header">
-        <a  class="btn btn-primary" href="add.php"  role="button">Agregar registro</a>
+        <a class="btn btn-primary" href="add.php" role="button">Agregar registro</a>
     </div>
     <div class="card-body">
         <div class="table-responsive-sm">
@@ -39,27 +39,40 @@ if ($_GET) {
                     </tr>
                 </thead>
                 <tbody>
-                <?php foreach($result as $technical){?>
-                    <tr class="">
-                        <td scope="row"><?php echo $technical["id"]?></td>
-                        <td><?php echo $technical["nombres"]?></td>
-                        <td><?php echo $technical["apellidos"]?></td>
-                        <td><?php echo $technical["identificacion"]?></td>
-                        <td><?php echo $technical["correo"]?></td>
-                        <td><?php echo $technical["direccion"]?></td>
-                        <td><?php echo $technical["telefono"]?></td>
-                        <td><?php echo $technical["fecha_nacimiento"]?></td>
-                        <td><a  class="btn btn-info" href="edit.php?id=<?php echo $technical["id"]?>" role="button">Editar</a></td>
-                        <td><a  class="btn btn-danger" href="index.php?id=<?php echo $technical["id"]?>" role="button">Eliminar</a></td>
-                    </tr>
-                <?php }?>
+                    <?php foreach ($result as $technical) { ?>
+                        <tr class="">
+                            <td scope="row"><?php echo $technical["id"] ?></td>
+                            <td><?php echo $technical["nombres"] ?></td>
+                            <td><?php echo $technical["apellidos"] ?></td>
+                            <td><?php echo $technical["identificacion"] ?></td>
+                            <td><?php echo $technical["correo"] ?></td>
+                            <td><?php echo $technical["direccion"] ?></td>
+                            <td><?php echo $technical["telefono"] ?></td>
+                            <td><?php echo $technical["fecha_nacimiento"] ?></td>
+                            <td><a class="btn btn-info" href="edit.php?id=<?php echo $technical["id"] ?>" role="button">Editar</a></td>
+                            <td><a class="btn btn-danger" href="javascript:deleteRegister(<?php echo $technical["id"] ?>)" role="button">Eliminar</a></td>
+                        </tr>
+                    <?php } ?>
                 </tbody>
             </table>
         </div>
-        
+
     </div>
-   
+
 </div>
 
-<?php include("../../templates/footer.php")   ?>
+<script>
+    function deleteRegister(id) {
+        Swal.fire({
+            title: '¿ Deseas eliminar este técnico ?',
+            showCancelButton: true,
+            confirmButtonText: 'Si',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = "index.php?id=" + id;
+            }
+        })
+    }
+</script>
 
+<?php include("../../templates/footer.php")   ?>

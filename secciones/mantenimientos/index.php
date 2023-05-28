@@ -6,24 +6,13 @@ $sentence = $conexion->prepare("select * from mantenimientos where estado=1");
 $sentence->execute();
 $result = $sentence->fetchAll();
 
-if($_GET){
-  if($_GET["id"] && $_GET["terminado"]=="true"){
-    $id=intval(isset($_GET["id"])?$_GET["id"]:"");
-    $sentece=$conexion->prepare("update  mantenimientos set estado=?, fecha_finalizacion=current_time  where id=?");
-    $estado=2;
-    $sentece->execute([$estado,$id]);
-  
-    header("location:index.php");
-    
-  }
-   if($_GET["id"] && $_GET["delete"]=="true"){
-    $id=intval(isset($_GET["id"])?$_GET["id"]:"");
-    $sentece=$conexion->prepare("delete from mantenimientos where id=:id");
-    $sentece->bindParam(":id",$id);
-    $sentece->execute();
-    
-    header("location:index.php");
-  }
+if ($_GET) {
+  $id = intval(isset($_GET["id"]) ? $_GET["id"] : "");
+  $sentece = $conexion->prepare("update  mantenimientos set estado=?, fecha_finalizacion=current_time  where id=?");
+  $estado = 2;
+  $sentece->execute([$estado, $id]);
+  header("location:index.php");
+
 }
 
 ?>
@@ -51,7 +40,7 @@ if($_GET){
         </thead>
         <tbody>
           <?php foreach ($result as $mant) { ?>
-            
+
             <?php
             $sentence = $conexion->prepare("select * from tecnicos where id=:id");
             $sentence->bindParam(":id", intval($mant["id_tecnico"]));
@@ -74,9 +63,9 @@ if($_GET){
               </td>
               <td>$<?php echo $mant["precio"] ?></td>
               <td><?php echo $mant["fecha_asignacion"] ?></td>
-              <td><a class="btn btn-info" href="edit.php" role="button">Editar</a></td>
-              <td><a class="btn btn-danger" href="index.php?id=<?php echo $mant["id"]?>&&delete=true" role="button">Eliminar</a></td>
-              <td><a class="btn btn-warning" href="index.php?id=<?php echo $mant["id"]?>&&terminado=true" role="button">M. terminado</a></td>
+              <td><a class="btn btn-info" href="edit.php?id=<?php echo $mant["id"]?>" role="button">Editar</a></td>
+              <td><a class="btn btn-danger" href="javascript:deleteRegister(<?php echo $mant["id"] ?>)" role="button">Eliminar</a></td>
+              <td><a class="btn btn-warning" href="javascript:finality(<?php echo $mant["id"] ?>)" role="button">M. terminado</a></td>
             </tr>
           <?php } ?>
         </tbody>
@@ -86,5 +75,30 @@ if($_GET){
   </div>
 
 </div>
+<script>
+  function deleteRegister(id) {
+    Swal.fire({
+      title: '¿ Deseas eliminar este mantenimiento ?',
+      showCancelButton: true,
+      confirmButtonText: 'Si',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        window.location.href = "delete.php?id=" + id;
+      }
+    })
+  }
+
+  function finality(id) {
+    Swal.fire({
+      title: '¿ Marcar este mantenimiento como terminado ?',
+      showCancelButton: true,
+      confirmButtonText: 'Si',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        window.location.href = "index.php?id=" + id;
+      }
+    })
+  }
+</script>
 
 <?php include("../../templates/footer.php")   ?>

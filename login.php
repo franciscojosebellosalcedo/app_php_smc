@@ -11,6 +11,7 @@ if ($_POST) {
     if ($result) {
         $_SESSION["nombre_usuario"] = $result["nombre"];
         $_SESSION["correo_usuario"] = $result["correo"];
+        $_SESSION["id_usuario"] = $result["id"];
         $_SESSION["login_usuario"] = true;
         header("location:index.php");
     } else {

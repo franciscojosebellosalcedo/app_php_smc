@@ -20,9 +20,8 @@ if ($_GET) {
     $sentence->execute();
     header("location:index.php");
 }
-
-
 ?>
+
 
 <h3>Computadores</h3>
 <div class="card">
@@ -63,7 +62,7 @@ if ($_GET) {
                             <td><?php echo $computer["disipador"] ?></td>
                             <td><?php echo $computer["placa_madre"] ?></td>
                             <td><a class="btn btn-info" href="edit.php?id=<? echo $computer["id"] ?>" role="button">Editar</a></td>
-                            <td><a class="btn btn-danger" href="index.php?id=<? echo $computer["id"] ?>" role="button">Eliminar</a></td>
+                            <td><a class="btn btn-danger" href="javascript:borrar(<? echo $computer["id"] ?>)" role="button">Eliminar</a></td>
                         </tr>
                     <?php } ?>
                 </tbody>
@@ -73,5 +72,19 @@ if ($_GET) {
     </div>
 
 </div>
+
+<script>
+    function borrar(id) {
+        Swal.fire({
+            title: '¿ Deseas eliminar este computador ?',
+            showCancelButton: true,
+            confirmButtonText: 'Si',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href="index.php?id="+id;
+            }
+        })
+    }
+</script>
 
 <?php include("../../templates/footer.php")   ?>
