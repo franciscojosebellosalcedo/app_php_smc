@@ -46,20 +46,20 @@ $urlRoot = "http://localhost:8080/app_php/app_php_smc/"
                 <a class="nav-link" href="<?php echo $urlRoot; ?>secciones/mantenimientos/index.php">Mantenimientos</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="javascript:cerrarSesion(<?php echo $_SESSION["id_usuario"] ?>)">Cerrar sesion</a>
+                <a class="nav-link" href="javascript:cerrarSesion()">Cerrar sesion</a>
             </li>
         </ul>
     </nav>
 
     <script>
-        function cerrarSesion(id) {
+        function cerrarSesion() {
             Swal.fire({
                 title: '¿ Deseas cerrar sesion ?',
                 showCancelButton: true,
                 confirmButtonText: 'Si',
             }).then((result) => {
                 if (result.isConfirmed) {
-                    window.location.href = "cerrar.php?id=" + id;
+                    window.location.href = "http://localhost:8080/app_php/app_php_smc/cerrar.php";
                 }
             })
         }

@@ -83,11 +83,11 @@ if ($_POST) {
 
       <div class="mb-3">
         <label for="" class="form-label">Precio (opcional)</label>
-        <input required type="double" class="form-control" name="precio" id="precio-mantenimiento" aria-describedby="helpId" placeholder="Ingrese el precio del mantenimiento (opcional)">
+        <input  type="double" class="form-control" name="precio" id="precio-mantenimiento" aria-describedby="helpId" placeholder="Ingrese el precio del mantenimiento (opcional)">
       </div>
 
       <div class="mb-3">
-        <label for="" class="form-label">Fecha nacimiento</label>
+        <label for="" class="form-label">Fecha del mantenimiento</label>
         <input required type="date" class="form-control" name="fecha_asignacion" id="fecha_asignacion_mantenimiento" aria-describedby="helpId">
       </div>
 
