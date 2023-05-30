@@ -6,13 +6,11 @@
 if ($_POST) {
     $nombre = isset($_POST["nombre"]) ? $_POST["nombre"] : "";
     $apellido = isset($_POST["apellido"]) ? $_POST["apellido"] : "";
-    echo $apellido;
     $identificacion = isset($_POST["identificacion"]) ? $_POST["identificacion"] : "";
     $correo = isset($_POST["correo"]) ? $_POST["correo"] : "";
     $contrasenia = isset($_POST["contrasenia"]) ? $_POST["contrasenia"] : "";
 
     $sentence = $conexion->prepare("insert into usuarios (id,nombre,apellido,identificacion,correo,contrasenia) values (null,:nombre,:apellido,:identificacion,:correo,:contrasenia)");
-
     $sentence->bindParam(":nombre", $nombre);
     $sentence->bindParam(":apellido", $apellido);
     $sentence->bindParam(":identificacion", $identificacion);
@@ -22,8 +20,6 @@ if ($_POST) {
 
     header("location:index.php");
 }
-
-
 
 ?>
 

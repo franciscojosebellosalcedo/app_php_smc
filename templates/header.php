@@ -54,12 +54,12 @@ $urlRoot = "http://localhost:8080/app_php/app_php_smc/"
     <script>
         function cerrarSesion() {
             Swal.fire({
-                title: '¿ Deseas cerrar sesion ?',
+                title: '¿<?php echo $_SESSION["nombre_usuario"]?> deseas cerrar sesion?',
                 showCancelButton: true,
                 confirmButtonText: 'Si',
             }).then((result) => {
                 if (result.isConfirmed) {
-                    window.location.href = "http://localhost:8080/app_php/app_php_smc/cerrar.php";
+                    window.location.href = "<?php echo $urlRoot."cerrar.php"?>";
                 }
             })
         }

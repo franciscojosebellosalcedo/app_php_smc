@@ -4,7 +4,6 @@ session_start();
 if ($_POST) {
     $correo = isset($_POST["correo"]) ? $_POST["correo"] : "";
     $contrasenia = isset($_POST["contrasenia"]) ? $_POST["contrasenia"] : "";
-
     $sentence = $conexion->prepare("select * from usuarios where correo=? and contrasenia=?");
     $sentence->execute([$correo, $contrasenia]);
     $result = $sentence->fetch();
