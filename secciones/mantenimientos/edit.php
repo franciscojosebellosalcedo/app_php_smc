@@ -119,7 +119,7 @@ if ($_GET) {
 
       <div class="mb-3">
         <label for="" class="form-label">Fecha nacimiento</label>
-        <input required type="date" class="form-control" name="fecha_asignacion" id="fecha_asignacion_mantenimiento" aria-describedby="helpId">
+        <input required value="<?php echo $resultMant["fecha_asignacion"]?>" type="date" class="form-control" name="fecha_asignacion" id="fecha_asignacion_mantenimiento" aria-describedby="helpId">
       </div>
 
 
