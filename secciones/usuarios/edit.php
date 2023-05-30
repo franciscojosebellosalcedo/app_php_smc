@@ -22,7 +22,7 @@ if($_POST){
     $apellido=isset($_POST["apellido"])?$_POST["apellido"]:"";
     $identificacion=isset($_POST["identificacion"])?$_POST["identificacion"]:"";
     $correo=isset($_POST["correo"])?$_POST["correo"]:"";
-    $contresenia=isset($_POST["contresenia"])?$_POST["contresenia"]:"";
+    $contresenia=isset($_POST["contrasenia"])?$_POST["contrasenia"]:"";
 
     $sentence = $conexion->prepare("update usuarios set nombre = ?, apellido = ?, identificacion= ?, correo= ?, contrasenia= ?    where id=?");
 

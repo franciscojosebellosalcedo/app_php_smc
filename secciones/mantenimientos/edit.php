@@ -114,11 +114,11 @@ if ($_GET) {
 
       <div class="mb-3">
         <label for="" class="form-label">Precio (opcional)</label>
-        <input required value="<?php echo $resultMant["precio"]?>" type="double" class="form-control" name="precio" id="precio-mantenimiento" aria-describedby="helpId" placeholder="Ingrese el precio del mantenimiento (opcional)">
+        <input value="<?php echo $resultMant["precio"]?>" type="double" class="form-control" name="precio" id="precio-mantenimiento" aria-describedby="helpId" placeholder="Ingrese el precio del mantenimiento (opcional)">
       </div>
 
       <div class="mb-3">
-        <label for="" class="form-label">Fecha nacimiento</label>
+        <label for="" class="form-label">Fecha del mantenimiento</label>
         <input required value="<?php echo $resultMant["fecha_asignacion"]?>" type="date" class="form-control" name="fecha_asignacion" id="fecha_asignacion_mantenimiento" aria-describedby="helpId">
       </div>
 
