@@ -75,6 +75,8 @@ if ($_POST) {
                             </div>
                             <button type="submit" class="btn btn-primary">Entrar</button>
                         </form>
+                        <br>
+                        <a href="http://localhost:8080/app_php/app_php_smc/secciones/usuarios/recoveryAccont.php">¿ He olvidado mi contraseña ?</a>
                     </div>
 
                 </div>

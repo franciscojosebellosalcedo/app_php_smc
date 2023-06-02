@@ -22,7 +22,7 @@ if($_POST){
     $apellido=isset($_POST["apellido"])?$_POST["apellido"]:"";
     $identificacion=isset($_POST["identificacion"])?$_POST["identificacion"]:"";
     $correo=isset($_POST["correo"])?$_POST["correo"]:"";
-    $contresenia=isset($_POST["contrasenia"])?$_POST["contrasenia"]:"";
+    $contrasenia=isset($_POST["contrasenia"])?$_POST["contrasenia"]:"";
 
     $sentence = $conexion->prepare("update usuarios set nombre = ?, apellido = ?, identificacion= ?, correo= ?, contrasenia= ?    where id=?");
 
@@ -67,7 +67,7 @@ if($_POST){
 
             <div class="mb-3">
                 <label for="" class="form-label">contraseña</label>
-                <input required value="<?php echo $result["contrasenia"]?>" type="password" class="form-control" name="contrasenia" id="contraseña-usuario" aria-describedby="helpId" placeholder="Ingrese la contraseña del usuario">
+                <input required minlength="8"  value="<?php echo $result["contrasenia"]?>" type="password" class="form-control" name="contrasenia" id="contraseña-usuario" aria-describedby="helpId" placeholder="Ingrese la contraseña del usuario">
             </div>
 
             <button type="submit" class="btn btn-success">Actualizar</button>
